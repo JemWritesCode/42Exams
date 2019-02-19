@@ -1,3 +1,35 @@
+///// Attempt 3
+// Unlike last time, instead of checking for position 0, I need to just check while currently string exists. 
+// Need to test this works, but it covers that broken test case.
+
+// The 2 additional things to test for in addition to given examples
+// "test" with no space before or after.
+// " thing," with a space only before.
+
+#include <unistd.h>
+
+int		main(int argc, char** argv){
+	if (argc == 2){
+		int i = 0;
+		while (argv[1][i])
+			i++; //now i is at the ending null terminator
+		i--; // step one back from the null terminator (the last letter)
+	while (i >= 0 && (argv[1][i] == ' ' || argv[1][i] == '\t'))
+			i--; // get through any trailing space/tabs
+		while (argv[1][i] && (argv[1][i] != ' ' && argv[1][i] != '\t'))
+			i--; // get through to character/space/-1 memory before the first letter of last word.
+		i++; // go back to first letter of last word, 
+		while(argv[1][i] && (argv[1][i] != ' ' && argv[1][i] != '\t')){
+			write(1, &argv[1][i], 1);
+			i++;
+		}
+	}
+	write(1, "\n", 1);
+	return (0);
+}
+
+
+
 ///// Attempt 2
 
 //Fails this test case. 
@@ -12,6 +44,8 @@ $> diff -U 3 user_output_test20 test20.output | cat -e
 Diff KO :(
 Grade: 0
 
+
+//so when there's a space in front but not after?
 
 #include <unistd.h>
 

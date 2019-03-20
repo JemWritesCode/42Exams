@@ -1,6 +1,6 @@
-// For this solution you need to understand:
-// - Bit Shifting
-// - Bitwise operators
+// Success
+// Explaination for this on my blog:
+// http://elevatecode.blogspot.com/2019/03/printbits_4.html
 
 #include <unistd.h>
 

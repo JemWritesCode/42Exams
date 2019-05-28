@@ -26,6 +26,8 @@ $>./search_and_replace "In foct, stoff crew ore very nice. They like metol." "o"
 In fact, staff crew are very nice. They like metal.$
 */
 
+// Passes all tests.
+
 #include <unistd.h>
 
 int ft_strlen(char *str){
